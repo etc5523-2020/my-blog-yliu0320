@@ -1,0 +1,46 @@
+---
+title: "About Coronavirus"
+bibliography: mybib.bib
+---
+
+Thanks CDC to provide these information[@cdc]
+
+### Basic Information
+
+Coronavirus Disease 2019 (COVID-19) was detected in Wuhan, Hubei Province, China in December 2019. It was a new infectious disease and was caused by new type of virus SARS-CoV-2. COVID-19 is a cause of an outbreak of respiratory disease. Cases of COVID-19 has spread to well over 190 countries. WHO declared a global pandemic in March 2020.
+
+### Symptoms
+
+A wide range of symptoms for COVID-19 have been reported. These include:
+
+- Fever or chills  
+- Cough  
+- Shortness of breath or difficulty breathing
+- Fatigue
+- Headache
+- Nasal congestion or runny nose
+- Muscle or body aches
+- Sore throat
+- New loss of smell or taste
+- Nausea or vomiting
+- Diarrhea
+
+The estimated incubation period is between 2 and 14 days with a median of 5 days. It is important to note that some people become infected and do not develop any symptoms or feel unwell.
+
+### Prevention
+
+There are a number of ways to prevent the spread of COVID-19 infection. These include:
+
+- Avoid touching your eyes, nose and mouth
+- Avoid close contact with people who are sick
+  - Remember that some people without symptoms can still spread the virus
+- Stay at home when you are sick
+- Cover your cough or sneeze with a tissue, then dispose of it properly
+- Use a face covering when physical distancing is difficult or when going into closed spaces
+  - Physical distancing should be at least 1 meter (3 ft)
+- Clean and disinfect frequently touched objects and surfaces
+- Perform hand hygiene with soap and water or use alcohol-based hand rub
+  - Hand Rub should contain at least 60% alcohol9
+  - Hand washing should be done for at least 40-60 seconds based on WHO’s recommendations
+
+*  *  *  *

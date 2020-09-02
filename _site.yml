@@ -1,0 +1,14 @@
+navbar:
+  title: "My Coronavirus Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Country"
+      href: Netherlands.html
+output:
+   html_document:
+     theme: cosmo
+     include:
+        after_body: footer.html
+     css: styles.css
+output_dir: docs
