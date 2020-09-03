@@ -48,7 +48,7 @@ total_case <- tibble(total_confirmed,total_death,total_recovered)%>%
 total_case
 ```
 
-The plot below
+The plot below shows
 ```{r table2,echo=FALSE,message=FALSE,warning=FALSE}
 coronavirus_Netherlands_summary <- coronavirus_Netherlands%>%
   group_by(date,type)%>%
