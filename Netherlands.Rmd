@@ -17,7 +17,7 @@ library("janitor")
 library("tibble")
 ```
 
-Thanks the coronavirus repository[@repository] for providing the raw data.
+Thank the coronavirus repository[@repository] for providing the raw data.
 
 Now I use some essential functions in R to do a brief analysis about Netherlands coronavirus data.It helps people to have a better data visualisation.
 

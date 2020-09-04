@@ -3,7 +3,7 @@ title: "About Coronavirus"
 bibliography: myref.bib
 ---
 
-Thanks CDC[@cdc] for providing these information.
+Thank CDC[@cdc] for providing these information.
 
 ### Basic Information
 
