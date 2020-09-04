@@ -1,9 +1,9 @@
 ---
 title: "About Coronavirus"
-bibliography: mybib.bib
+bibliography: myref.bib
 ---
 
-Thanks CDC to provide these information[@cdc]
+Thanks CDC[@cdc] for providing these information.
 
 ### Basic Information
 
@@ -44,3 +44,4 @@ There are a number of ways to prevent the spread of COVID-19 infection. These in
   - Hand washing should be done for at least 40-60 seconds based on WHO’s recommendations
 
 *  *  *  *
+References

@@ -1,6 +1,6 @@
 ---
 title: "Netherlands Coronavirus Statistics"
-bibliography: mybib.bib
+bibliography: myref.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -14,13 +14,12 @@ library("plotly")
 library("readr")
 library("kableExtra")
 library("janitor")
+library("tibble")
 ```
 
-Now I use some essential functions in R to do a brief analysis about Netherlands Coronavirus data.It helps people to have a better data visualisation.
+Thanks the coronavirus repository[@repository] for providing the raw data.
 
-The data of generating tables and plots below comes from coronavirus repository of RamiKrispin,who provides a tidy format dataset of the 2019 Novel Coronavirus COVID-19 (2019-nCoV) epidemic.The raw data pulled from the Johns Hopkins University Center for Systems Science and Engineering (JHU CCSE) Coronavirus repository.
-https://github.com/RamiKrispin/coronavirus
-https://github.com/CSSEGISandData/COVID-19
+Now I use some essential functions in R to do a brief analysis about Netherlands coronavirus data.It helps people to have a better data visualisation.
 
 ```{r data_citation,echo=FALSE,message=FALSE,warning=FALSE}
 coronavirus <- read_csv("coronavirus.csv")
@@ -28,7 +27,6 @@ coronavirus_Netherlands <- coronavirus%>%
   filter(country=="Netherlands")
 ```
 
-<br>
 The table below shows the total number of infected, deaths and recovered in Netherlands from 2020.01.22 to 2020.08.29.
 
 ```{r table1,echo=FALSE,message=FALSE,warning=FALSE}
@@ -48,7 +46,7 @@ total_case
 ```
 
 <br>
-It has displayed the total number about the coronavirus in Netherlands since it broke out all over the world.In the following table, it helps people to clearly know the daily confirmed,death and recovered data.Also this interactive table allows people to sort data in order.It is so amazing.
+In the following table, it even helps people to clearly know the daily confirmed,death and recovered data.Also this interactive table allows people to sort data in order.It is so amazing.
 
 
 ```{r table2,echo=FALSE,message=FALSE,warning=FALSE}
@@ -63,7 +61,7 @@ coronavirus_Netherlands_summary%>%
 <br>
 People could have a more explicit visualisation from the interactive plot below,which could display the whole data at the same time.For example,people would find that there is a dramatically decrease in confirmed case from the middle of April in 2020 to the beginning of July in 2020 because of the lockdown in the country,and there is an opposite trend after lifting the restriction from the beginning of July.
 
-
+<br>
 ```{r plot1,echo=FALSE,message=FALSE,warning=FALSE}
 coronavirus_Netherlands_summary %>% 
    plot_ly(x = ~ date,
@@ -83,15 +81,14 @@ coronavirus_Netherlands_summary %>%
          yaxis = list(title = "Number of Cases"))
 ```
 
-The tables and plot above display the overall data and trend in Netherlands.The contingency table below displays a detailed data information about the death proportion due to the coronavirus grouping by age and gender.
+The tables and plot above display the overall data and trend in Netherlands.The contingency table below displays a detailed data information about the death proportion due to the coronavirus grouping by age and gender.Maybe people would find an interesting data story in the description below.
 
-These numerical summary statistics show the distribution of the death toll,which fits with people's common sense to some extent.From the table,it is easy to find that most deaths occurred in older patients,and roughly more than 88% deaths occurred in patients aged 70 years old and over.However, the proportion of people who are under 50 years old die from the coronavirus is very low just about 0.74%.These data indicate that the elder have a bad immunity.
+These numerical summary statistics show the distribution of the death toll,which fits with people's common sense to some extent.From the table,it is easy to find that most deaths occurred in older patients,and roughly more than 88% deaths occurred in patients aged 70 years old and over.However, the proportion of people who are under 50 years old died from the coronavirus is very low just about 0.74%[@age].These data indicate that the elder have a bad immunity.
 
-But people would also notice that the death proportion of male is higher than that of female.Maybe it is violate our common sense.Most of people consider male have a better physical fitness than female.But from the data shown in the table,it is opposite.
+But people would also notice that the death proportion of male is higher than that of female[@proportion].Maybe it violates our common sense.Most of people consider male has a better physical fitness than female.But from the data shown in the table,it is opposite.
 
 ```{r table3,echo=FALSE,message=FALSE,warning=FALSE}
-death_age <- tribble(~"<50",~"50-59",~"60-69",~"70-79",~"80-89",~">90",
-                           "46","147","506","1655","2686","1167")
+death_age <- tribble(~"<50",~"50-59",~"60-69",~"70-79",~"80-89",~">90",                           "46","147","506","1655","2686","1167")
 sumdeath0825 <- sum(46,147,506,1655,2686,1167)
 death_age <- death_age%>%
   mutate(Total=as.character(sumdeath0825))%>%
@@ -105,11 +102,7 @@ death_age%>%
   adorn_pct_formatting(digits=2)%>%
   kable(caption="The proportion of the death toll according to age and gender in Netherlands(from 2020.01.22 to 2020.08.25)")%>%
   kable_styling()
-  
-
-
 ```
 
-deaths(%male):54.98% deaths(%female):45.02%
-
 *  *  *  *
+References
