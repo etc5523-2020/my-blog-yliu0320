@@ -1,0 +1,58 @@
+---
+title: "Chile Coronavirus Statistics"
+bibliography: myref.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load-packages,echo=FALSE,message=FALSE}
+library("tidyverse")
+library("DT")
+library("plotly")
+library("readr")
+library("kableExtra")
+library("janitor")
+library("tibble")
+```
+
+Thank the coronavirus repository[@repository] for providing the raw data.
+
+Now I use some essential functions in R to do a brief analysis about Chile coronavirus data.This time I will focus on plots to help people to have a better data visualisation.
+
+```{r data_citation,echo=FALSE,message=FALSE,warning=FALSE}
+coronavirus <- read_csv("coronavirus_updated to 9.11.csv")
+coronavirus_Chile <- coronavirus%>%
+  filter(country=="Chile")
+```
+
+```{r plot1,echo=FALSE,message=FALSE,warning=FALSE}
+coronavirus_Chile %>% 
+  group_by(type, date) %>%
+  summarise(total_cases = sum(cases)) %>%
+  pivot_wider(names_from = type, values_from = total_cases) %>%
+  arrange(date) %>%
+  mutate(confirmed_total = cumsum(confirmed),
+        recovered_total = cumsum(recovered),
+        death_total = cumsum(death)) %>%
+  plot_ly(x = ~ date,
+          y = ~ recovered_total,
+          name = 'recovered', 
+          fillcolor = 'blue',
+          type = 'scatter',
+          mode = 'none', 
+          stackgroup = 'one') %>%
+  add_trace(y = ~ death_total, 
+             name = "Death",
+             fillcolor = 'red') %>%
+  add_trace(y = ~confirmed_total, 
+            name = 'confirmed', 
+            fillcolor = 'green') %>%
+  layout(title = "Distribution of Covid19 Cases in Chile",
+         legend = list(x = 0.1, y = 0.9),
+         yaxis = list(title = "Cumulative Number of Cases"))
+```
+
+*  *  *  *
+References

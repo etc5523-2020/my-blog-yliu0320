@@ -3,8 +3,10 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Country"
+    - text: "Netherlands"
       href: Netherlands.html
+    - text: "Chile"
+      href: Chile.html
 output:
    html_document:
      theme: cosmo
