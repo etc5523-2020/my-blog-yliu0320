@@ -9,19 +9,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r load-packages,echo=FALSE,message=FALSE}
 library("tidyverse")
-library("DT")
 library("plotly")
 library("readr")
 library("kableExtra")
 library("janitor")
 library("tibble")
-library("patchwork")
-library("gridExtra")
 ```
 
 Thank the coronavirus repository[@repository] for providing the raw data.
 
-Now I use some essential functions in R to do a brief analysis about Chile coronavirus data.This time I will focus on plots to help people to have a better data visualisation.
+Now I use some essential functions in R to do a brief analysis about Chile coronavirus data.This time I will focus on more plots to help people to have a better data visualisation.
 
 ```{r data_citation,echo=FALSE,message=FALSE,warning=FALSE}
 coronavirus <- read_csv("coronavirus_updated to 9.11.csv")
@@ -29,37 +26,40 @@ coronavirus_Chile <- coronavirus%>%
   filter(country=="Chile")
 ```
 
+### Overall Data and Trends
 
-```{r plot1,echo=FALSE,message=FALSE,warning=FALSE}
-coronavirus_Chile %>% 
-  group_by(type, date) %>%
-  summarise(total_cases = sum(cases)) %>%
-  pivot_wider(names_from = type, values_from = total_cases) %>%
-  arrange(date) %>%
-  mutate(confirmed_total = cumsum(confirmed),
-        recovered_total = cumsum(recovered),
-        death_total = cumsum(death)) %>%
-  plot_ly(x = ~ date,
-          y = ~ recovered_total,
-          name = 'recovered', 
-          fillcolor = 'green',
-          type = 'scatter',
-          mode = 'none', 
-          stackgroup = 'one') %>%
-  add_trace(y = ~ death_total, 
-             name = "Death",
-             fillcolor = 'red') %>%
-  add_trace(y = ~confirmed_total, 
-            name = 'confirmed', 
-            fillcolor = 'blue') %>%
-  layout(title = "Distribution of Covid19 Cases in Chile",
-         legend = list(x = 0.1, y = 0.9),
-         yaxis = list(title = "Cumulative Number of Cases"))
+In this section,people will have a good understanding of the overall data abd trends about the coronavirus in Chile.
+
+The table below shows the total number of infected, deaths and recovered in Chile from 2020.01.22 to 2020.09.11.
+
+<center>
+```{r table1,echo=FALSE,message=FALSE,warning=FALSE}
+cumulative_confirmed <- coronavirus_Chile%>%
+  filter(type == "confirmed")%>%
+  summarise(cumulative_confirmed=sum(cases))
+cumulative_death <- coronavirus_Chile%>%
+  filter(type == "death")%>%
+  summarise(cumulative_death=sum(cases))
+cumulative_recovered <- coronavirus_Chile%>%
+  filter(type == "recovered")%>%
+  summarise(cumulative_recovered=sum(cases))
+cumulative_case <-tibble(cumulative_confirmed,cumulative_death,cumulative_recovered)%>%
+  kable(align="c",caption="Number of infected, deaths and recovered in Chile(from 2020.01.22 to 2020.09.11)") %>% 
+  kable_styling()
+cumulative_case
 ```
+</center>
 
+<br>
+People could have a more explicit visualisation from the interactive plot below,which could display the whole data at the same time.
 
+For example,people would find that the daily number of confirmed cases dramatically increases from the middle of May to the beginning of June and the data reaches the peak at Jun.6,which is approximately 139900.The reason for that is South America becomes the new epicenter of the epidemic.
 
-```{r plot2,echo=FALSE,message=FALSE,warning=FALSE}
+After that, the daily confirmed case sharply decreases and finally stabilizes at nearly 2000 because the scope of mandatory isolation is expanded and more strict measures are implemented.
+<br>
+
+<center>
+```{r plot1,echo=FALSE,message=FALSE,warning=FALSE}
 coronavirus_Chile%>%
   group_by(date,type)%>%
   summarise(total=sum(cases))%>%
@@ -80,8 +80,16 @@ coronavirus_Chile%>%
          legend = list(x = 0.1, y = 0.9),
          yaxis = list(title = "Number of Cases"))
 ```
+</center>
 
-```{r plot3,echo=FALSE,message=FALSE,warning=FALSE}
+### Different Region Data
+
+In this section,the plot below displays a detailed data information about the total confirmed number by region.Maybe people would find an interesting data story in the description below.
+
+The most affected area is the Metropolitan region, where the capital city of Santiago is located. As of September 8, 2020, the number of confirmed cases of the novel coronavirus reached 278,241 in the Metropolitan region, which accounted for over 65 percent of the total cases registered in Chile.
+
+<center>
+```{r plot2,echo=FALSE,message=FALSE,warning=FALSE}
 confirmed_region <- tribble(~"Metropolitana(Santiago)",~"Valparaíso",~"Biobío",~"Antofagasta",~"O’Higgins",~"Maule",~"Tarapacá",~"Coquimbo",~"Los Lagos",~"Arica y Parinacota",~"Atacama",~"Araucanía",~"Ñuble",~"Magallanes",~"Los Ríos",~"Aysén",~"Unknown",                           "278241","24438","19390","18792","14247","12770","11021","10714","7225","7101","6082","5595","5229","4738","1253","136","55")
 
 confirmed_region <-confirmed_region%>%
@@ -102,6 +110,12 @@ ggplot(confirmed_region,
   geom_text(aes(label=cases),hjust = -0.008, size = 2)+
   coord_flip()
 ```
+</center>
+
+
+<center>
+<img width="200" height="600" srcset="http://www.cybertruffle.org.uk/chilfung/chile_regions.gif">
+</center>
 
 Combining 
 
