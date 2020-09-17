@@ -15,6 +15,8 @@ library("readr")
 library("kableExtra")
 library("janitor")
 library("tibble")
+library("patchwork")
+library("gridExtra")
 ```
 
 Thank the coronavirus repository[@repository] for providing the raw data.
@@ -26,6 +28,7 @@ coronavirus <- read_csv("coronavirus_updated to 9.11.csv")
 coronavirus_Chile <- coronavirus%>%
   filter(country=="Chile")
 ```
+
 
 ```{r plot1,echo=FALSE,message=FALSE,warning=FALSE}
 coronavirus_Chile %>% 
@@ -39,7 +42,7 @@ coronavirus_Chile %>%
   plot_ly(x = ~ date,
           y = ~ recovered_total,
           name = 'recovered', 
-          fillcolor = 'blue',
+          fillcolor = 'green',
           type = 'scatter',
           mode = 'none', 
           stackgroup = 'one') %>%
@@ -48,7 +51,7 @@ coronavirus_Chile %>%
              fillcolor = 'red') %>%
   add_trace(y = ~confirmed_total, 
             name = 'confirmed', 
-            fillcolor = 'green') %>%
+            fillcolor = 'blue') %>%
   layout(title = "Distribution of Covid19 Cases in Chile",
          legend = list(x = 0.1, y = 0.9),
          yaxis = list(title = "Cumulative Number of Cases"))
@@ -56,6 +59,49 @@ coronavirus_Chile %>%
 
 
 
+```{r plot2,echo=FALSE,message=FALSE,warning=FALSE}
+coronavirus_Chile%>%
+  group_by(date,type)%>%
+  summarise(total=sum(cases))%>%
+  pivot_wider(names_from=type,values_from=total)%>%
+  plot_ly(x = ~ date,
+           y = ~ confirmed,
+           type = "scatter",
+           name="Confirmed",
+           fillcolor="blue",
+           alpha=0.5)%>%
+  add_trace(y = ~ death, 
+            name = "Death",
+            fillcolor = "red") %>%
+  add_trace(y = ~recovered, 
+            name = "Recovered", 
+            fillcolor = "green") %>%
+  layout(title = "Distribution of Covid19 Cases in Chile",
+         legend = list(x = 0.1, y = 0.9),
+         yaxis = list(title = "Number of Cases"))
+```
+
+```{r plot3,echo=FALSE,message=FALSE,warning=FALSE}
+confirmed_region <- tribble(~"Metropolitana(Santiago)",~"Valparaíso",~"Biobío",~"Antofagasta",~"O’Higgins",~"Maule",~"Tarapacá",~"Coquimbo",~"Los Lagos",~"Arica y Parinacota",~"Atacama",~"Araucanía",~"Ñuble",~"Magallanes",~"Los Ríos",~"Aysén",~"Unknown",                           "278241","24438","19390","18792","14247","12770","11021","10714","7225","7101","6082","5595","5229","4738","1253","136","55")
+
+confirmed_region <-confirmed_region%>%
+  pivot_longer(cols="Metropolitana(Santiago)":"Unknown",
+               names_to="region",
+               values_to="cases")%>%
+  mutate(cases=as.numeric(cases))%>%
+  arrange(cases)
+
+ggplot(confirmed_region,
+       aes(x=reorder(region,cases),y=cases,fill=region))+
+  geom_bar(stat = "identity",width =0.8,show.legend = FALSE)+
+  scale_fill_manual(values=c("grey50", "grey50", "grey50", "grey50","grey50","grey50","grey50","grey50","grey50","grey50","grey50","red","grey50","grey50","grey50","grey50","grey50"))+
+  labs(title="Number of confirmed cases of Covid19 in Chile by region(from 2020.01.22 to 2020.09.08)",x = NULL, y = NULL)+
+  theme(axis.ticks = element_blank(), 
+        axis.text.x = element_blank(),
+        plot.title = element_text(size=9.5))+
+  geom_text(aes(label=cases),hjust = -0.008, size = 2)+
+  coord_flip()
+```
 
 
 
