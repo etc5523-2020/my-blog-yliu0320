@@ -103,7 +103,7 @@ ggplot(confirmed_region,
   coord_flip()
 ```
 
-
+Combining 
 
 
 
