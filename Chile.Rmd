@@ -53,9 +53,11 @@ cumulative_case
 
 People could have a more explicit visualisation from the interactive plot below,which could display the whole data at the same time.
 
-For example,people would find that the daily number of confirmed cases dramatically increased from the middle of May to the beginning of June and the number reached the peak at Jun.6th,which was approximately 139900.The reason for that was South America became the new epicenter of the epidemic and the Chile government lifted some restriction in order to restore economic development.
+For example,people would find that the daily number of confirmed cases dramatically increased from the middle of May to the beginning of June and the number reached the peak at Jun.6th,which was approximately 13990.The reason for that was South America became the new epicenter of the epidemic and the Chile government lifted some restriction in order to restore economic development.
 
 After that, the daily confirmed cases sharply decreased and finally stabilized at nearly 2000 because the scope of mandatory isolation was expanded and more strict measures were implemented.
+
+Besides,people could notice the daily recovered cases on Jun.2nd was so high and it rose to 41227,which value was nearly 19 times as many as that on Jun.1st.Maybe it has something to do with the change of definition of active cases by the Ministry of Health[@pandemic].
 
 <center>
 ```{r plot1,echo=FALSE,message=FALSE,warning=FALSE}
@@ -85,9 +87,9 @@ coronavirus_Chile%>%
 
 In this section,the plot below displays a detailed data information about the total confirmed number by region.People would find the coronavirus confirmed number fits with the population density.
 
-From the data of population density in Chile[@density],people could surprisingly notice that the population density in Metropolitan region,where the capital city of Santiago is located,reaches 8,470 people per square kilometer.It is almost 350 times as many as the average population density of this country,which value is 24 people per square kilometer.
+From the data of population density in Chile[@density],people could surprisingly notice that the population density in Metropolitan region,where the capital city of Santiago is located,reaches 462 people per square kilometer.It is almost 20 times as many as the average population density of this country,which value is 24 people per square kilometer.
 
-So the plot below demonstrates this feature.The most affected area is the Metropolitan region.As of 2020.09.08,the number of confirmed cases of coronavirus reached 278,241[@region] in the Metropolitan region, which accounted for over 65 percent of the total cases registered in Chile.At the same time,because of the harsh geographical environment like Atacama Desert,region like Atacama has the low population density. The number of confirmed cases in this place was low.
+So the plot below demonstrates this feature.The most affected area is the Metropolitan region.As of 2020.09.08,the number of confirmed cases of coronavirus reached 278,241[@region] in the Metropolitan region, which accounted for over 65 percent of the total cases registered in Chile.At the same time,because of the harsh geographical environment like Atacama Desert,region like Atacama has the low population density(almost 3.8 people per square kilometer).The number of confirmed cases in this place was low.
 
 Therefore,it is obvious that the population density is an important factor to determine the scope of coronaviruse transmission to some extent.So appropriate social distance is an effective way to prevent the spread of coronavirus.
 
