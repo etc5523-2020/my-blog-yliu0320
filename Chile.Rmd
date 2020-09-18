@@ -26,11 +26,12 @@ coronavirus_Chile <- coronavirus%>%
   filter(country=="Chile")
 ```
 
+
 ### Overall Data and Trends
 
-In this section,people will have a good understanding of the overall data abd trends about the coronavirus in Chile.
+In this section,people will have a good understanding of the overall data and trends about the coronavirus in Chile.
 
-The table below shows the total number of infected, deaths and recovered in Chile from 2020.01.22 to 2020.09.11.
+The table below shows the cumulative number of infected, deaths and recovered in Chile from 2020.01.22 to 2020.09.11.
 
 <center>
 ```{r table1,echo=FALSE,message=FALSE,warning=FALSE}
@@ -50,13 +51,11 @@ cumulative_case
 ```
 </center>
 
-<br>
 People could have a more explicit visualisation from the interactive plot below,which could display the whole data at the same time.
 
-For example,people would find that the daily number of confirmed cases dramatically increases from the middle of May to the beginning of June and the data reaches the peak at Jun.6,which is approximately 139900.The reason for that is South America becomes the new epicenter of the epidemic.
+For example,people would find that the daily number of confirmed cases dramatically increased from the middle of May to the beginning of June and the number reached the peak at Jun.6th,which was approximately 139900.The reason for that was South America became the new epicenter of the epidemic and the Chile government lifted some restriction in order to restore economic development.
 
-After that, the daily confirmed case sharply decreases and finally stabilizes at nearly 2000 because the scope of mandatory isolation is expanded and more strict measures are implemented.
-<br>
+After that, the daily confirmed cases sharply decreased and finally stabilized at nearly 2000 because the scope of mandatory isolation was expanded and more strict measures were implemented.
 
 <center>
 ```{r plot1,echo=FALSE,message=FALSE,warning=FALSE}
@@ -84,9 +83,13 @@ coronavirus_Chile%>%
 
 ### Different Region Data
 
-In this section,the plot below displays a detailed data information about the total confirmed number by region.Maybe people would find an interesting data story in the description below.
+In this section,the plot below displays a detailed data information about the total confirmed number by region.People would find the coronavirus confirmed number fits with the population density.
 
-The most affected area is the Metropolitan region, where the capital city of Santiago is located. As of September 8, 2020, the number of confirmed cases of the novel coronavirus reached 278,241 in the Metropolitan region, which accounted for over 65 percent of the total cases registered in Chile.
+From the data of population density in Chile[@density],people could surprisingly notice that the population density in Metropolitan region,where the capital city of Santiago is located,reaches 8,470 people per square kilometer.It is almost 350 times as many as the average population density of this country,which value is 24 people per square kilometer.
+
+So the plot below demonstrates this feature.The most affected area is the Metropolitan region.As of 2020.09.08,the number of confirmed cases of coronavirus reached 278,241[@region] in the Metropolitan region, which accounted for over 65 percent of the total cases registered in Chile.At the same time,because of the harsh geographical environment like Atacama Desert,region like Atacama has the low population density. The number of confirmed cases in this place was low.
+
+Therefore,it is obvious that the population density is an important factor to determine the scope of coronaviruse transmission to some extent.So appropriate social distance is an effective way to prevent the spread of coronavirus.
 
 <center>
 ```{r plot2,echo=FALSE,message=FALSE,warning=FALSE}
@@ -103,23 +106,15 @@ ggplot(confirmed_region,
        aes(x=reorder(region,cases),y=cases,fill=region))+
   geom_bar(stat = "identity",width =0.8,show.legend = FALSE)+
   scale_fill_manual(values=c("grey50", "grey50", "grey50", "grey50","grey50","grey50","grey50","grey50","grey50","grey50","grey50","red","grey50","grey50","grey50","grey50","grey50"))+
-  labs(title="Number of confirmed cases of Covid19 in Chile by region(from 2020.01.22 to 2020.09.08)",x = NULL, y = NULL)+
+  labs(title="Number of confirmed cases of Covid19 in Chile by region(from 2020.01.22 to 2020.09.08)",x = NULL, y = NULL,caption = "SOURCE: Statista 2020")+
   theme(axis.ticks = element_blank(), 
         axis.text.x = element_blank(),
-        plot.title = element_text(size=9.5))+
+        plot.title = element_text(size=9.5),
+        plot.caption= element_text(size=8))+
   geom_text(aes(label=cases),hjust = -0.008, size = 2)+
   coord_flip()
 ```
 </center>
-
-
-<center>
-<img width="200" height="600" srcset="http://www.cybertruffle.org.uk/chilfung/chile_regions.gif">
-</center>
-
-Combining 
-
-
 
 *  *  *  *
 References
