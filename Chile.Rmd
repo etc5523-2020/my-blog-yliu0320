@@ -57,7 +57,7 @@ For example,people would find that the daily number of confirmed cases dramatica
 
 After that, the daily confirmed cases sharply decreased and finally stabilized at nearly 2000 because the scope of mandatory isolation was expanded and more strict measures were implemented.
 
-Besides,people could notice the daily recovered cases on Jun.2nd was so high and it rose to 41227,which value was nearly 19 times as many as that on Jun.1st.Maybe it has something to do with the change of definition of active cases by the Ministry of Health[@pandemic].
+Besides,people could notice the daily recovered cases on June 2 was so high and it rose to 41227,which value was nearly 19 times as many as that on June 1.Maybe it has something to do with the change of definition of active cases by the Ministry of Health[@pandemic].
 
 <center>
 ```{r plot1,echo=FALSE,message=FALSE,warning=FALSE}
