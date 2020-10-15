@@ -33,11 +33,11 @@ For example,if people select one state in the list,they would get an interactive
 
   - Second,it would be more beautiful if the plot and table about the cumulative cases of different types in different states of Australia are put in the same row.People could see and compare them more conveniently.
 
-**3. What are some things that you’d like to add that’s plausible?**
+**3. What are some things that you'd like to add that's plausible?**
 
 - To the table,it just shows the cumulative cases of different types in different states in the last day you choose in the date range and it not shows the sum of these cases in a country granularity.It is great and plausible to add a new row on the bottom of table to show it,which makes people understand the data more intuitively.
 
-**4. What are some things that you’d like to add that cannot be done yet due to limitation in data or technology?**
+**4. What are some things that you'd like to add that cannot be done yet due to limitation in data or technology?**
 
 - To the table,I want to add a row which represents the sum of the cumulative cases in a country granularity but it does not work because the interaction is wrong.
 
