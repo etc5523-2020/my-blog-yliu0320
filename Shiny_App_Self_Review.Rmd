@@ -1,0 +1,31 @@
+---
+title: "Shiny App Self Review"
+bibliography: myref.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+I have done the previous assignment about shiny app and I think that self review is an important part of the learning process.So now I will review my app and provide some points of improvement,which may help me to do better in the future.
+
+### About My Shiny App
+
+This is an shiny app about Australia coronavirus.It helps people to know the coronavirus data of daily cases and cumulative cases of different types in different states of Australia between 2020-01-12 to 2020-10-02.
+
+[This is the link of my shiny app.](https://yiwen-liu.shinyapps.io/app_about_coronavirus/)From the website,people can change their inputs and get some specific coronavirus data they want from the interactive plots and table.
+
+For example,if people select one state in the list,they would get an interactive plot about the daily cases of different types in the related state.The date of the plot is between the date range they choose at first.If they click a point on the plot,they will get the text about the type,date and number of cases this point represents. 
+
+### Self Review
+
+
+
+
+
+
+
+
+
+
+*  *  *  *
