@@ -9,6 +9,8 @@ navbar:
       href: Chile.html
     - text: "Shiny App Self Review"
       href: Shiny_App_Self_Review.html
+    - text: "Package Peer Review"
+      href: Package_Peer_Review.html
 output:
    html_document:
      theme: cosmo

@@ -7,7 +7,7 @@ bibliography: myref.bib
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r load-packages,echo=FALSE,message=FALSE}
+```{r load-packages,echo=FALSE,message=FALSE,warning=FALSE}
 library("tidyverse")
 library("plotly")
 library("readr")

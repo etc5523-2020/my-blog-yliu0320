@@ -1,0 +1,46 @@
+---
+title: "Package Peer Review"
+bibliography: myref.bib
+---
+
+```{r setup, include=FALSE,message=FALSE,warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Peer review is a useful tool to both receive feedback from your colleagues and reflect on how others solve problems similar that you may encounter.Now I will review another student's package and give some suggestion to help him improve.At the same time,I will learn something from it too.
+
+### Overview of the package
+
+The package is written by **Diyao Chen** and it is called **DdyaoPackage**.
+
+People can install the package from [GitHub]("etc5523-2020/r-package-assessment-DDyao") with:
+
+```{r}
+# install.packages("devtools")
+# devtools::install_github("etc5523-2020/r-package-assessment-DDyao")
+```
+
+The app in the package is use to analysis the COVID19 situation in Italy.
+
+However,at first I cannot run the shiny app in the package.
+
+```{r,echo=FALSE}
+knitr::include_graphics("picture/peer_review_screen_shot.png")
+```
+After that,I checked the code in the app.R and the server_element.R.I found that server_element2 function did not work,so I slightly modified the code and finally succeeded in running the shiny app.
+
+```{r,echo=FALSE}
+knitr::include_graphics("picture/peer_review_shiny_app.png")
+```
+
+### What does the package do
+
+The shiny app in the package wants to convey some information about the following two questions.
+
+- primary question: What is the situation about COVID19 in Italy(each month)?
+- secondary question: What is the situation for each province?
+
+From the shiny app,I can get some useful information about the questions with the clear user interface and the understandable plot and table.
+
+### About improvements
+

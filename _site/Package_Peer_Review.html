@@ -11,7 +11,7 @@
 
 
 
-<title>About Coronavirus</title>
+<title>Package Peer Review</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -299,65 +299,34 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About Coronavirus</h1>
+<h1 class="title toc-ignore">Package Peer Review</h1>
 
 </div>
 
 
-<p>Thank CDC<span class="citation">(CDC 2020)</span> for providing these information.</p>
-<div id="basic-information" class="section level3">
-<h3>Basic Information</h3>
-<p>Coronavirus Disease 2019 (COVID-19) was detected in Wuhan, Hubei Province, China in December 2019. It was a new infectious disease and was caused by new type of virus SARS-CoV-2. COVID-19 is a cause of an outbreak of respiratory disease. Cases of COVID-19 has spread to well over 190 countries. WHO declared a global pandemic in March 2020.</p>
+<p>Peer review is a useful tool to both receive feedback from your colleagues and reflect on how others solve problems similar that you may encounter.Now I will review another student’s package and give some suggestion to help him improve.At the same time,I will learn something from it too.</p>
+<div id="overview-of-the-package" class="section level3">
+<h3>Overview of the package</h3>
+<p>The package is written by <strong>Diyao Chen</strong> and it is called <strong>DdyaoPackage</strong>.</p>
+<p>People can install the package from <a href="%22etc5523-2020/r-package-assessment-DDyao%22">GitHub</a> with:</p>
+<pre class="r"><code># install.packages(&quot;devtools&quot;)
+# devtools::install_github(&quot;etc5523-2020/r-package-assessment-DDyao&quot;)</code></pre>
+<p>The app in the package is use to analysis the COVID19 situation in Italy.</p>
+<p>However,at first I cannot run the shiny app in the package.</p>
+<p><img src="picture/peer_review_screen_shot.png" width="552" /> After that,I checked the code in the app.R and the server_element.R.I found that server_element2 function did not work,so I slightly modified the code and finally succeeded in running the shiny app.</p>
+<p><img src="picture/peer_review_shiny_app.png" width="884" /></p>
 </div>
-<div id="symptoms" class="section level3">
-<h3>Symptoms</h3>
-<p>A wide range of symptoms for COVID-19 have been reported. These include:</p>
+<div id="what-does-the-package-do" class="section level3">
+<h3>What does the package do</h3>
+<p>The shiny app in the package wants to convey some information about the following two questions.</p>
 <ul>
-<li>Fever or chills<br />
-</li>
-<li>Cough<br />
-</li>
-<li>Shortness of breath or difficulty breathing</li>
-<li>Fatigue</li>
-<li>Headache</li>
-<li>Nasal congestion or runny nose</li>
-<li>Muscle or body aches</li>
-<li>Sore throat</li>
-<li>New loss of smell or taste</li>
-<li>Nausea or vomiting</li>
-<li>Diarrhea</li>
+<li>primary question: What is the situation about COVID19 in Italy(each month)?</li>
+<li>secondary question: What is the situation for each province?</li>
 </ul>
-<p>The estimated incubation period is between 2 and 14 days with a median of 5 days. It is important to note that some people become infected and do not develop any symptoms or feel unwell.</p>
+<p>From the shiny app,I can get some useful information about the questions with the clear user interface and the understandable plot and table.</p>
 </div>
-<div id="prevention" class="section level3">
-<h3>Prevention</h3>
-<p>There are a number of ways to prevent the spread of COVID-19 infection. These include:</p>
-<ul>
-<li>Avoid touching your eyes, nose and mouth</li>
-<li>Avoid close contact with people who are sick
-<ul>
-<li>Remember that some people without symptoms can still spread the virus</li>
-</ul></li>
-<li>Stay at home when you are sick</li>
-<li>Cover your cough or sneeze with a tissue, then dispose of it properly</li>
-<li>Use a face covering when physical distancing is difficult or when going into closed spaces
-<ul>
-<li>Physical distancing should be at least 1 meter (3 ft)</li>
-</ul></li>
-<li>Clean and disinfect frequently touched objects and surfaces</li>
-<li>Perform hand hygiene with soap and water or use alcohol-based hand rub
-<ul>
-<li>Hand Rub should contain at least 60% alcohol9</li>
-<li>Hand washing should be done for at least 40-60 seconds based on WHO’s recommendations</li>
-</ul></li>
-</ul>
-<hr />
-<p>References</p>
-<div id="refs" class="references">
-<div id="ref-cdc">
-<p>CDC. 2020. “COVID-19 Overview and Infection Prevention and Control Priorities in Non-Us Healthcare Settings.” <a href="https://www.cdc.gov/coronavirus/2019-ncov/hcp/non-us-settings/overview/index.html#prevention-treatment">https://www.cdc.gov/coronavirus/2019-ncov/hcp/non-us-settings/overview/index.html#prevention-treatment</a>.</p>
-</div>
-</div>
+<div id="about-improvements" class="section level3">
+<h3>About improvements</h3>
 </div>
 
 <p>Copyright &copy; 2020 My Coronavirus Website.</p>
