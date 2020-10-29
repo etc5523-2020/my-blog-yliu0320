@@ -313,8 +313,10 @@ $(document).ready(function () {
 # devtools::install_github(&quot;etc5523-2020/r-package-assessment-DDyao&quot;)</code></pre>
 <p>The app in the package is use to analysis the COVID19 situation in Italy.</p>
 <p>However,at first I cannot run the shiny app in the package.</p>
-<p><img src="picture/peer_review_screen_shot.png" width="552" /> After that,I checked the code in the app.R and the server_element.R.I found that server_element2 function did not work,so I slightly modified the code and finally succeeded in running the shiny app.</p>
+<p><img src="picture/peer_review_screen_shot.png" width="552" /></p>
+<p>After that,I downloaded the whole files from the github and checked the code in the app.R and the server_element.R.I found that server_element2 function did not work,so I slightly modified the code and finally succeeded in running the shiny app.</p>
 <p><img src="picture/peer_review_shiny_app.png" width="884" /></p>
+<p><br></p>
 </div>
 <div id="what-does-the-package-do" class="section level3">
 <h3>What does the package do</h3>
@@ -327,6 +329,52 @@ $(document).ready(function () {
 </div>
 <div id="about-improvements" class="section level3">
 <h3>About improvements</h3>
+<p><strong>1.Shiny App</strong></p>
+<p>Plots and table in the shiny app are interactive.Also the shiny app has a clear user interface and explanatory sentences,which are great.</p>
+<p>I think about the layout of this shiny app,Diyao could modify the color of the navigation bar,which would more effectively appeal people’s attention.</p>
+<p><strong>2.Functions</strong></p>
+<p>Some of the functions like server_element() and ui_element() are simple but practical,which are great.However,other functions do not work because of some trivial problems like forgetting to export the function which is written in the r script.</p>
+<p>I suggest that Diyao could try to write some more complicated functions in the future.At the same time,Diyao could become more careful to check the format of functions.</p>
+<p><strong>3.Unit Test</strong></p>
+<p>There are two unit tests in the package and they are functional.</p>
+<p>The possible improvement could be that Diyao can try to write some more complicated unit test in the future.</p>
+<p><strong>4.Documentation</strong></p>
+<p>About the description and readme,there are short of some detailed contents that introduce the package.While to the vignette,it is clear to tell people how to use the shiny app and what information this app wants to express.</p>
+<p>Although in the shiny app, there is a section named about and it displays the overview of the dataset and the aim of the app,people just could know it after they download the package.So I suggest that Diyao could add more descriptive sentences in the readme file,which would give people who want to use the package a more detailed overview.</p>
+</div>
+<div id="learn-from-reviewing-the-package" class="section level3">
+<h3>Learn from reviewing the package</h3>
+<p>I learn a lot from reviewing another student’s package.I learn how to insert the about section into the shiny app from the external rmarkdown file.Also I realize the importance of readme file.A good readme file can give people a brief introduction of the package and appeal them to download and use it,while a bad readme file would make people confused.</p>
+</div>
+<div id="package-review" class="section level3">
+<h3>Package Review</h3>
+<p><em>Please check off boxes as applicable, and elaborate in comments below.</em></p>
+<div id="documentation" class="section level4">
+<h4>Documentation</h4>
+<p>The package includes all the following forms of documentation:</p>
+<ul>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Installation instructions:</strong> for the package is found in README</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Vignette(s)</strong> demonstrating major functionality that runs successfully locally</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Function Documentation:</strong> for all exported functions in R help</li>
+<li><input type="checkbox" disabled="" />
+<strong>Examples</strong> for all exported functions in R Help that run successfully locally</li>
+</ul>
+</div>
+<div id="functionality" class="section level4">
+<h4>Functionality</h4>
+<ul>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Installation:</strong> Installation succeeds as documented.</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Functionality:</strong> Any functional claims of the software been confirmed.</li>
+<li><input type="checkbox" disabled="" checked="" />
+<strong>Automated tests:</strong> Unit tests cover essential functions of the package and a reasonable range of inputs and conditions. All tests pass on the local machine.</li>
+</ul>
+<hr />
+</div>
 </div>
 
 <p>Copyright &copy; 2020 My Coronavirus Website.</p>
