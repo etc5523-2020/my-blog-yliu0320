@@ -85,7 +85,7 @@ coronavirus_Chile%>%
 
 ### Different Region Data
 
-In this section,the plot below displays a detailed data information about the total confirmed number by region.People would find the coronavirus confirmed number fits with the population density.
+In this section,the plot below displays a detailed data information about the total confirmed number by region.People would find the coronavirus confirmed number fits with the population density. :)
 
 From the data of population density in Chile[@density],people could surprisingly notice that the population density in Metropolitan region,where the capital city of Santiago is located,reaches 462 people per square kilometer.It is almost 20 times as many as the average population density of this country,which value is 24 people per square kilometer.
 
